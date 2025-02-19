@@ -1,0 +1,44 @@
+{
+  "name": "@liquify/monorepo",
+  "description": "Monorepo for LiquifY",
+  "version": "1.0.0",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hatif03/LiquifY"
+  },
+  "bugs": {
+    "url": "https://github.com/hatif03/LiquifY/issues"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=16 <=18",
+    "pnpm": "8"
+  },
+  "scripts": {
+    "dev": "pnpm run --filter frontend dev",
+    "build": "pnpm run --filter frontend build",
+    "start": "pnpm run --filter frontend start",
+    "lint": "pnpm run --filter frontend lint",
+    "lint:fix": "pnpm run --filter frontend lint:fix",
+    "prepare": "husky install"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "next": "^13.0.0"
+      }
+    }
+  },
+  "devDependencies": {
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "next": "^13.4.19",
+    "typescript": "^5.2.2"
+  }
+}
