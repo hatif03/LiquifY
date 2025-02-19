@@ -1,7 +1,7 @@
 {
-  "name": "@polkalance/frontend",
+  "name": "@liquify/frontend",
   "version": "1.0.0",
-  "homepage": "https://inkathon.xyz",
+  "homepage": "",
   "babelMacros": {
     "twin": {
       "preset": "emotion"
