@@ -1,0 +1,4248 @@
+{
+  "source": {
+    "hash": "0xb7b99a2048a76d77849849422cbc32ebba2861dcd3e9e8b228d7fec93d3370ba",
+    "language": "ink! 4.3.0",
+    "compiler": "rustc 1.71.1",
+    "build_info": {
+      "build_mode": "Release",
+      "cargo_contract_version": "3.2.0",
+      "rust_toolchain": "stable-aarch64-apple-darwin",
+      "wasm_opt_settings": {
+        "keep_debug_symbols": false,
+        "optimization_passes": "Z"
+      }
+    }
+  },
+  "contract": {
+    "name": "polkalance",
+    "version": "0.1.0",
+    "authors": [
+      "Polkalance <lamha.24h@gmail.com>"
+    ]
+  },
+  "spec": {
+    "constructors": [
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "new",
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink_primitives",
+            "ConstructorResult"
+          ],
+          "type": 21
+        },
+        "selector": "0x9bae9d5e"
+      }
+    ],
+    "docs": [],
+    "environment": {
+      "accountId": {
+        "displayName": [
+          "AccountId"
+        ],
+        "type": 0
+      },
+      "balance": {
+        "displayName": [
+          "Balance"
+        ],
+        "type": 3
+      },
+      "blockNumber": {
+        "displayName": [
+          "BlockNumber"
+        ],
+        "type": 7
+      },
+      "chainExtension": {
+        "displayName": [
+          "ChainExtension"
+        ],
+        "type": 60
+      },
+      "hash": {
+        "displayName": [
+          "Hash"
+        ],
+        "type": 59
+      },
+      "maxEventTopics": 4,
+      "timestamp": {
+        "displayName": [
+          "Timestamp"
+        ],
+        "type": 5
+      }
+    },
+    "events": [
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "account_id",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "account_role",
+            "type": {
+              "displayName": [
+                "AccountRole"
+              ],
+              "type": 43
+            }
+          }
+        ],
+        "docs": [],
+        "label": "Registered"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "description",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "deposite",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobCreated"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "desired_salary",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobAuction"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "freelancer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobChooseTheBestBid"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "onwer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "freelancer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "CreateContract"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "freelancer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "SignAndJobObtained"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "freelancer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "result",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobSubmitted"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobRejected"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "freelancer",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobApproved"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobCanceled"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "requester",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "negotiation_pay",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobNegotiationRequested"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "responder",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "agreement",
+            "type": {
+              "displayName": [
+                "bool"
+              ],
+              "type": 6
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobNegotiationResponded"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "terminator",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "reporter",
+            "type": {
+              "displayName": [
+                "Option"
+              ],
+              "type": 34
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobTerminated"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "reporter",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "report",
+            "type": {
+              "displayName": [
+                "ReportInfo"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobReported"
+      },
+      {
+        "args": [
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "rater",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "docs": [],
+            "indexed": true,
+            "label": "rating_point",
+            "type": {
+              "displayName": [
+                "RatingPoint"
+              ],
+              "type": 15
+            }
+          }
+        ],
+        "docs": [],
+        "label": "JobRated"
+      }
+    ],
+    "lang_error": {
+      "displayName": [
+        "ink",
+        "LangError"
+      ],
+      "type": 23
+    },
+    "messages": [
+      {
+        "args": [
+          {
+            "label": "amount",
+            "type": {
+              "displayName": [
+                "Balance"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "withdraw",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x410fcc9d"
+      },
+      {
+        "args": [
+          {
+            "label": "name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "detail",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "string_role",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "register",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x229b553f"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "check_exist_wallet",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 27
+        },
+        "selector": "0x24acf904"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "get_all_open_jobs_no_params",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 29
+        },
+        "selector": "0xa0f82563"
+      },
+      {
+        "args": [
+          {
+            "label": "status_string",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_all_jobs_of_owner_with_status",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 29
+        },
+        "selector": "0xd0c4249c"
+      },
+      {
+        "args": [
+          {
+            "label": "status_string",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_all_jobs_of_freelancer_with_status",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 29
+        },
+        "selector": "0x7fae3e25"
+      },
+      {
+        "args": [
+          {
+            "label": "person_account_id",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "label": "status_string",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_all_jobs_of_person_with_status",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 29
+        },
+        "selector": "0xbd8cdbe3"
+      },
+      {
+        "args": [
+          {
+            "label": "string_category",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_all_open_jobs",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 29
+        },
+        "selector": "0xad5e741f"
+      },
+      {
+        "args": [
+          {
+            "label": "filter",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_freelancer",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 36
+        },
+        "selector": "0xc1394dbd"
+      },
+      {
+        "args": [
+          {
+            "label": "caller",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_account_info",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 40
+        },
+        "selector": "0x61269768"
+      },
+      {
+        "args": [
+          {
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_job_id_of_onwer",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 46
+        },
+        "selector": "0xfe98bacf"
+      },
+      {
+        "args": [
+          {
+            "label": "owner",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_job_id_of_freelancer",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 46
+        },
+        "selector": "0x5066c9bb"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "show_detail_job_of_id",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 48
+        },
+        "selector": "0x50488c06"
+      },
+      {
+        "args": [
+          {
+            "label": "name",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "description",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "string_category",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "duration",
+            "type": {
+              "displayName": [
+                "u64"
+              ],
+              "type": 5
+            }
+          },
+          {
+            "label": "required_deposit_of_freelancer",
+            "type": {
+              "displayName": [
+                "Balance"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "create_job",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0xfefbb8db"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "desired_salary",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "required_deposit_of_owner",
+            "type": {
+              "displayName": [
+                "Balance"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "job_auction",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x68253872"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_all_auctioneer",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 50
+        },
+        "selector": "0xdf6101b9"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "party_b",
+            "type": {
+              "displayName": [
+                "AccountId"
+              ],
+              "type": 0
+            }
+          },
+          {
+            "label": "rules",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "percent_paid_when_contract_fail",
+            "type": {
+              "displayName": [
+                "u8"
+              ],
+              "type": 2
+            }
+          },
+          {
+            "label": "duration",
+            "type": {
+              "displayName": [
+                "u8"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "create_contract",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x36458718"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "get_all_contract_of_owner",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 52
+        },
+        "selector": "0x92745490"
+      },
+      {
+        "args": [],
+        "default": false,
+        "docs": [],
+        "label": "get_all_contract_of_freelancer",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 52
+        },
+        "selector": "0xe7b914dc"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "get_contract_info_of_job_id",
+        "mutates": false,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 57
+        },
+        "selector": "0xad55a1f4"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "cancel_contract",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x86088c02"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "sign_contract_and_obtain",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0xb1068084"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "result",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "submit",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x8eac2baf"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "feedback",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "reject",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x3d67f481"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "approval",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x005620f9"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "cancel",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x9796e9a7"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "feedback",
+            "type": {
+              "displayName": [
+                "String"
+              ],
+              "type": 4
+            }
+          },
+          {
+            "label": "negotiation_pay",
+            "type": {
+              "displayName": [
+                "u128"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "request_negotiate",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x766c7588"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "agreement",
+            "type": {
+              "displayName": [
+                "bool"
+              ],
+              "type": 6
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "respond_negotiate",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x64b3c817"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "terminate",
+        "mutates": true,
+        "payable": true,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0x476d839f"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "report",
+            "type": {
+              "displayName": [
+                "ReportInfo"
+              ],
+              "type": 4
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "report",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0xf30f464c"
+      },
+      {
+        "args": [
+          {
+            "label": "job_id",
+            "type": {
+              "displayName": [
+                "JobId"
+              ],
+              "type": 3
+            }
+          },
+          {
+            "label": "point",
+            "type": {
+              "displayName": [
+                "u8"
+              ],
+              "type": 2
+            }
+          }
+        ],
+        "default": false,
+        "docs": [],
+        "label": "rating",
+        "mutates": true,
+        "payable": false,
+        "returnType": {
+          "displayName": [
+            "ink",
+            "MessageResult"
+          ],
+          "type": 24
+        },
+        "selector": "0xbb0253b4"
+      }
+    ]
+  },
+  "storage": {
+    "root": {
+      "layout": {
+        "struct": {
+          "fields": [
+            {
+              "layout": {
+                "enum": {
+                  "dispatchKey": "0x00000000",
+                  "name": "Option",
+                  "variants": {
+                    "0": {
+                      "fields": [],
+                      "name": "None"
+                    },
+                    "1": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x00000000",
+                              "ty": 0
+                            }
+                          },
+                          "name": "0"
+                        }
+                      ],
+                      "name": "Some"
+                    }
+                  }
+                }
+              },
+              "name": "owner_of_account"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 3
+                }
+              },
+              "name": "fee_balance"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 4
+                            }
+                          },
+                          "name": "name"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "job_id"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 4
+                            }
+                          },
+                          "name": "description"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Category",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "NONE"
+                                },
+                                "1": {
+                                  "fields": [],
+                                  "name": "IT"
+                                },
+                                "2": {
+                                  "fields": [],
+                                  "name": "MARKETING"
+                                },
+                                "3": {
+                                  "fields": [],
+                                  "name": "PHOTOSHOP"
+                                }
+                              }
+                            }
+                          },
+                          "name": "category"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0xeea82b82",
+                                          "ty": 4
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "result"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Status",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "OPEN"
+                                },
+                                "1": {
+                                  "fields": [],
+                                  "name": "AUCTIONING"
+                                },
+                                "2": {
+                                  "fields": [],
+                                  "name": "BECREATINGCONTRACT"
+                                },
+                                "3": {
+                                  "fields": [],
+                                  "name": "DOING"
+                                },
+                                "4": {
+                                  "fields": [],
+                                  "name": "REVIEW"
+                                },
+                                "5": {
+                                  "fields": [],
+                                  "name": "UNQUALIFIED"
+                                },
+                                "6": {
+                                  "fields": [],
+                                  "name": "REOPEN"
+                                },
+                                "7": {
+                                  "fields": [],
+                                  "name": "FINISH"
+                                },
+                                "8": {
+                                  "fields": [],
+                                  "name": "CANCELED"
+                                }
+                              }
+                            }
+                          },
+                          "name": "status"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "budget"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 2
+                            }
+                          },
+                          "name": "fee_percentage"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 5
+                            }
+                          },
+                          "name": "start_time"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 5
+                            }
+                          },
+                          "name": "end_time"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0xeea82b82",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "person_create"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0xeea82b82",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "person_obtain"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "pay"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "negotiation_pay"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 4
+                            }
+                          },
+                          "name": "feedback"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 6
+                            }
+                          },
+                          "name": "request_negotiation"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0xeea82b82",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "requester"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xeea82b82",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0xeea82b82",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "reporter"
+                        },
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xeea82b82",
+                                      "ty": 6
+                                    }
+                                  },
+                                  "name": "0"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xeea82b82",
+                                      "ty": 6
+                                    }
+                                  },
+                                  "name": "1"
+                                }
+                              ],
+                              "name": "(A, B)"
+                            }
+                          },
+                          "name": "require_rating"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 6
+                            }
+                          },
+                          "name": "unqualifier"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "required_deposit_of_owner"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xeea82b82",
+                              "ty": 3
+                            }
+                          },
+                          "name": "required_deposit_of_freelancer"
+                        }
+                      ],
+                      "name": "Job"
+                    }
+                  },
+                  "root_key": "0xeea82b82"
+                }
+              },
+              "name": "jobs"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 3
+                }
+              },
+              "name": "current_job_id"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xa3006e77",
+                              "ty": 4
+                            }
+                          },
+                          "name": "name"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0xa3006e77",
+                              "ty": 4
+                            }
+                          },
+                          "name": "detail"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0xa3006e77",
+                              "name": "AccountRole",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "INDIVIDUAL"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "enum": {
+                                          "dispatchKey": "0xa3006e77",
+                                          "name": "OnwerRoleInEnterprise",
+                                          "variants": {
+                                            "0": {
+                                              "fields": [],
+                                              "name": "TEAMLEAD"
+                                            },
+                                            "1": {
+                                              "fields": [],
+                                              "name": "ACCOUNTANT"
+                                            }
+                                          }
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "ENTERPRISE"
+                                },
+                                "2": {
+                                  "fields": [],
+                                  "name": "FREELANCER"
+                                }
+                              }
+                            }
+                          },
+                          "name": "role"
+                        },
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xa3006e77",
+                                      "ty": 7
+                                    }
+                                  },
+                                  "name": "0"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xa3006e77",
+                                      "ty": 7
+                                    }
+                                  },
+                                  "name": "1"
+                                }
+                              ],
+                              "name": "(A, B)"
+                            }
+                          },
+                          "name": "successful_jobs_and_all_jobs"
+                        },
+                        {
+                          "layout": {
+                            "struct": {
+                              "fields": [
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xa3006e77",
+                                      "ty": 7
+                                    }
+                                  },
+                                  "name": "0"
+                                },
+                                {
+                                  "layout": {
+                                    "leaf": {
+                                      "key": "0xa3006e77",
+                                      "ty": 7
+                                    }
+                                  },
+                                  "name": "1"
+                                }
+                              ],
+                              "name": "(A, B)"
+                            }
+                          },
+                          "name": "rating_points"
+                        }
+                      ],
+                      "name": "UserInfo"
+                    }
+                  },
+                  "root_key": "0xa3006e77"
+                }
+              },
+              "name": "personal_account_info"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xb06c6bd7",
+                      "ty": 8
+                    }
+                  },
+                  "root_key": "0xb06c6bd7"
+                }
+              },
+              "name": "owner_jobs"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0x42612a5d",
+                      "ty": 8
+                    }
+                  },
+                  "root_key": "0x42612a5d"
+                }
+              },
+              "name": "freelancer_jobs"
+            },
+            {
+              "layout": {
+                "leaf": {
+                  "key": "0x00000000",
+                  "ty": 11
+                }
+              },
+              "name": "all_freelancer"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0x966f4285",
+                      "ty": 12
+                    }
+                  },
+                  "root_key": "0x966f4285"
+                }
+              },
+              "name": "ratings"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0x781cb7fe",
+                      "ty": 16
+                    }
+                  },
+                  "root_key": "0x781cb7fe"
+                }
+              },
+              "name": "reports"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "leaf": {
+                      "key": "0xc5655c36",
+                      "ty": 19
+                    }
+                  },
+                  "root_key": "0xc5655c36"
+                }
+              },
+              "name": "auction"
+            },
+            {
+              "layout": {
+                "root": {
+                  "layout": {
+                    "struct": {
+                      "fields": [
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 3
+                            }
+                          },
+                          "name": "job_id"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0x4a9d9f1a",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0x4a9d9f1a",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "party_a"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 3
+                            }
+                          },
+                          "name": "required_deposit_of_party_a"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0x4a9d9f1a",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0x4a9d9f1a",
+                                          "ty": 6
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "party_a_consent"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0x4a9d9f1a",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0x4a9d9f1a",
+                                          "ty": 0
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "party_b"
+                        },
+                        {
+                          "layout": {
+                            "enum": {
+                              "dispatchKey": "0x4a9d9f1a",
+                              "name": "Option",
+                              "variants": {
+                                "0": {
+                                  "fields": [],
+                                  "name": "None"
+                                },
+                                "1": {
+                                  "fields": [
+                                    {
+                                      "layout": {
+                                        "leaf": {
+                                          "key": "0x4a9d9f1a",
+                                          "ty": 6
+                                        }
+                                      },
+                                      "name": "0"
+                                    }
+                                  ],
+                                  "name": "Some"
+                                }
+                              }
+                            }
+                          },
+                          "name": "party_b_consent"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 3
+                            }
+                          },
+                          "name": "required_deposit_of_party_b"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 4
+                            }
+                          },
+                          "name": "rules"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 2
+                            }
+                          },
+                          "name": "percent_paid_when_contract_fail"
+                        },
+                        {
+                          "layout": {
+                            "leaf": {
+                              "key": "0x4a9d9f1a",
+                              "ty": 5
+                            }
+                          },
+                          "name": "deadline_to_sign_contract"
+                        }
+                      ],
+                      "name": "Contract"
+                    }
+                  },
+                  "root_key": "0x4a9d9f1a"
+                }
+              },
+              "name": "contracts"
+            }
+          ],
+          "name": "Account"
+        }
+      },
+      "root_key": "0x00000000"
+    }
+  },
+  "types": [
+    {
+      "id": 0,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 1,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "AccountId"
+        ]
+      }
+    },
+    {
+      "id": 1,
+      "type": {
+        "def": {
+          "array": {
+            "len": 32,
+            "type": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "type": {
+        "def": {
+          "primitive": "u8"
+        }
+      }
+    },
+    {
+      "id": 3,
+      "type": {
+        "def": {
+          "primitive": "u128"
+        }
+      }
+    },
+    {
+      "id": 4,
+      "type": {
+        "def": {
+          "primitive": "str"
+        }
+      }
+    },
+    {
+      "id": 5,
+      "type": {
+        "def": {
+          "primitive": "u64"
+        }
+      }
+    },
+    {
+      "id": 6,
+      "type": {
+        "def": {
+          "primitive": "bool"
+        }
+      }
+    },
+    {
+      "id": 7,
+      "type": {
+        "def": {
+          "primitive": "u32"
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 9
+          }
+        }
+      }
+    },
+    {
+      "id": 9,
+      "type": {
+        "def": {
+          "tuple": [
+            3,
+            10
+          ]
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "OPEN"
+              },
+              {
+                "index": 1,
+                "name": "AUCTIONING"
+              },
+              {
+                "index": 2,
+                "name": "BECREATINGCONTRACT"
+              },
+              {
+                "index": 3,
+                "name": "DOING"
+              },
+              {
+                "index": 4,
+                "name": "REVIEW"
+              },
+              {
+                "index": 5,
+                "name": "UNQUALIFIED"
+              },
+              {
+                "index": 6,
+                "name": "REOPEN"
+              },
+              {
+                "index": 7,
+                "name": "FINISH"
+              },
+              {
+                "index": 8,
+                "name": "CANCELED"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "Status"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 0
+          }
+        }
+      }
+    },
+    {
+      "id": 12,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 13
+          }
+        }
+      }
+    },
+    {
+      "id": 13,
+      "type": {
+        "def": {
+          "tuple": [
+            3,
+            14
+          ]
+        }
+      }
+    },
+    {
+      "id": 14,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 15
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 15
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "OneStar"
+              },
+              {
+                "index": 1,
+                "name": "TwoStars"
+              },
+              {
+                "index": 2,
+                "name": "ThreeStars"
+              },
+              {
+                "index": 3,
+                "name": "FourStars"
+              },
+              {
+                "index": 4,
+                "name": "FiveStars"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "RatingPoint"
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 17
+          }
+        }
+      }
+    },
+    {
+      "id": 17,
+      "type": {
+        "def": {
+          "tuple": [
+            3,
+            18
+          ]
+        }
+      }
+    },
+    {
+      "id": 18,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 4
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 4
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 20
+          }
+        }
+      }
+    },
+    {
+      "id": 20,
+      "type": {
+        "def": {
+          "tuple": [
+            0,
+            3,
+            3
+          ]
+        }
+      }
+    },
+    {
+      "id": 21,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 22
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 22
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 22,
+      "type": {
+        "def": {
+          "tuple": []
+        }
+      }
+    },
+    {
+      "id": 23,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 1,
+                "name": "CouldNotReadInput"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "LangError"
+        ]
+      }
+    },
+    {
+      "id": 24,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 25
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 25
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 25,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 22
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 22
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 26,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "InvalidQuery"
+              },
+              {
+                "index": 1,
+                "name": "NotOwnerOfThisContract"
+              },
+              {
+                "index": 2,
+                "name": "OverBalance"
+              },
+              {
+                "index": 3,
+                "name": "Registered"
+              },
+              {
+                "index": 4,
+                "name": "NotRegistered"
+              },
+              {
+                "index": 5,
+                "name": "NotJobAssigner"
+              },
+              {
+                "index": 6,
+                "name": "NotFreelancer"
+              },
+              {
+                "index": 7,
+                "name": "InvalidBid"
+              },
+              {
+                "index": 8,
+                "name": "InvalidBidder"
+              },
+              {
+                "index": 9,
+                "name": "NoBidder"
+              },
+              {
+                "index": 10,
+                "name": "NotBidder"
+              },
+              {
+                "index": 11,
+                "name": "NoAuctioneer"
+              },
+              {
+                "index": 12,
+                "name": "NotExistedThisContract"
+              },
+              {
+                "index": 13,
+                "name": "NotPartyA"
+              },
+              {
+                "index": 14,
+                "name": "NotPartyB"
+              },
+              {
+                "index": 15,
+                "name": "Signed"
+              },
+              {
+                "index": 16,
+                "name": "CreatedContract"
+              },
+              {
+                "index": 17,
+                "name": "ConfirmationTimeExpires"
+              },
+              {
+                "index": 18,
+                "name": "ConfirmationTimeNotExpires"
+              },
+              {
+                "index": 19,
+                "name": "InvalidDeposit"
+              },
+              {
+                "index": 20,
+                "name": "NoContract"
+              },
+              {
+                "index": 21,
+                "name": "NoJobs"
+              },
+              {
+                "index": 22,
+                "name": "NotExisted"
+              },
+              {
+                "index": 23,
+                "name": "NotTaked"
+              },
+              {
+                "index": 24,
+                "name": "Taked"
+              },
+              {
+                "index": 25,
+                "name": "NotTakeThisJob"
+              },
+              {
+                "index": 26,
+                "name": "NotAssignThisJob"
+              },
+              {
+                "index": 27,
+                "name": "OutOfDate"
+              },
+              {
+                "index": 28,
+                "name": "Submitted"
+              },
+              {
+                "index": 29,
+                "name": "Processing"
+              },
+              {
+                "index": 30,
+                "name": "Finished"
+              },
+              {
+                "index": 31,
+                "name": "Canceled"
+              },
+              {
+                "index": 32,
+                "name": "InvalidPayAmount"
+              },
+              {
+                "index": 33,
+                "name": "InvalidNegotiation"
+              },
+              {
+                "index": 34,
+                "name": "InvalidTermination"
+              },
+              {
+                "index": 35,
+                "name": "InvalidReport"
+              },
+              {
+                "index": 36,
+                "name": "InvalidRating"
+              },
+              {
+                "index": 37,
+                "name": "InvalidPoint"
+              },
+              {
+                "index": 38,
+                "name": "NotYourContract"
+              },
+              {
+                "index": 39,
+                "name": "NoNegotiator"
+              },
+              {
+                "index": 40,
+                "name": "HaveNegotiator"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "JobError"
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 28
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 28
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "type": {
+        "def": {
+          "tuple": [
+            4,
+            4
+          ]
+        }
+      }
+    },
+    {
+      "id": 29,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 30
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 30
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 31
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 31
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 32
+          }
+        }
+      }
+    },
+    {
+      "id": 32,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "name",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "job_id",
+                "type": 3,
+                "typeName": "JobId"
+              },
+              {
+                "name": "description",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "category",
+                "type": 33,
+                "typeName": "Category"
+              },
+              {
+                "name": "result",
+                "type": 18,
+                "typeName": "Option<String>"
+              },
+              {
+                "name": "status",
+                "type": 10,
+                "typeName": "Status"
+              },
+              {
+                "name": "budget",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "fee_percentage",
+                "type": 2,
+                "typeName": "u8"
+              },
+              {
+                "name": "start_time",
+                "type": 5,
+                "typeName": "Timestamp"
+              },
+              {
+                "name": "end_time",
+                "type": 5,
+                "typeName": "Timestamp"
+              },
+              {
+                "name": "person_create",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "person_obtain",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "pay",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "negotiation_pay",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "feedback",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "request_negotiation",
+                "type": 6,
+                "typeName": "bool"
+              },
+              {
+                "name": "requester",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "reporter",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "require_rating",
+                "type": 35,
+                "typeName": "(bool, bool)"
+              },
+              {
+                "name": "unqualifier",
+                "type": 6,
+                "typeName": "bool"
+              },
+              {
+                "name": "required_deposit_of_owner",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "required_deposit_of_freelancer",
+                "type": 3,
+                "typeName": "Balance"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "Job"
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "NONE"
+              },
+              {
+                "index": 1,
+                "name": "IT"
+              },
+              {
+                "index": 2,
+                "name": "MARKETING"
+              },
+              {
+                "index": 3,
+                "name": "PHOTOSHOP"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "Category"
+        ]
+      }
+    },
+    {
+      "id": 34,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 0
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 0
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "type": {
+        "def": {
+          "tuple": [
+            6,
+            6
+          ]
+        }
+      }
+    },
+    {
+      "id": 36,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 37
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 37
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 38
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 38
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 39
+          }
+        }
+      }
+    },
+    {
+      "id": 39,
+      "type": {
+        "def": {
+          "tuple": [
+            4,
+            31
+          ]
+        }
+      }
+    },
+    {
+      "id": 40,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 41
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 41
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 42
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 42
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 42,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "name",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "detail",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "role",
+                "type": 43,
+                "typeName": "AccountRole"
+              },
+              {
+                "name": "successful_jobs_and_all_jobs",
+                "type": 45,
+                "typeName": "(u32, u32)"
+              },
+              {
+                "name": "rating_points",
+                "type": 45,
+                "typeName": "(u32, u32)"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "UserInfo"
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "INDIVIDUAL"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 44,
+                    "typeName": "OnwerRoleInEnterprise"
+                  }
+                ],
+                "index": 1,
+                "name": "ENTERPRISE"
+              },
+              {
+                "index": 2,
+                "name": "FREELANCER"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "AccountRole"
+        ]
+      }
+    },
+    {
+      "id": 44,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "TEAMLEAD"
+              },
+              {
+                "index": 1,
+                "name": "ACCOUNTANT"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "OnwerRoleInEnterprise"
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "type": {
+        "def": {
+          "tuple": [
+            7,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "id": 46,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 47
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 47
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 8
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 8
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 48,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 49
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 49
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 49,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 32
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 32
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 50,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 51
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 51
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 51,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 19
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 19
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 53
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 53
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 53,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 54
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 54
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 54,
+      "type": {
+        "def": {
+          "sequence": {
+            "type": 55
+          }
+        }
+      }
+    },
+    {
+      "id": 55,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "name": "job_id",
+                "type": 3,
+                "typeName": "JobId"
+              },
+              {
+                "name": "party_a",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "required_deposit_of_party_a",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "party_a_consent",
+                "type": 56,
+                "typeName": "Option<bool>"
+              },
+              {
+                "name": "party_b",
+                "type": 34,
+                "typeName": "Option<AccountId>"
+              },
+              {
+                "name": "party_b_consent",
+                "type": 56,
+                "typeName": "Option<bool>"
+              },
+              {
+                "name": "required_deposit_of_party_b",
+                "type": 3,
+                "typeName": "Balance"
+              },
+              {
+                "name": "rules",
+                "type": 4,
+                "typeName": "String"
+              },
+              {
+                "name": "percent_paid_when_contract_fail",
+                "type": 2,
+                "typeName": "u8"
+              },
+              {
+                "name": "deadline_to_sign_contract",
+                "type": 5,
+                "typeName": "Timestamp"
+              }
+            ]
+          }
+        },
+        "path": [
+          "polkalance",
+          "polkalance",
+          "Contract"
+        ]
+      }
+    },
+    {
+      "id": 56,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "index": 0,
+                "name": "None"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 6
+                  }
+                ],
+                "index": 1,
+                "name": "Some"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 6
+          }
+        ],
+        "path": [
+          "Option"
+        ]
+      }
+    },
+    {
+      "id": 57,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 58
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 23
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 58
+          },
+          {
+            "name": "E",
+            "type": 23
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 58,
+      "type": {
+        "def": {
+          "variant": {
+            "variants": [
+              {
+                "fields": [
+                  {
+                    "type": 55
+                  }
+                ],
+                "index": 0,
+                "name": "Ok"
+              },
+              {
+                "fields": [
+                  {
+                    "type": 26
+                  }
+                ],
+                "index": 1,
+                "name": "Err"
+              }
+            ]
+          }
+        },
+        "params": [
+          {
+            "name": "T",
+            "type": 55
+          },
+          {
+            "name": "E",
+            "type": 26
+          }
+        ],
+        "path": [
+          "Result"
+        ]
+      }
+    },
+    {
+      "id": 59,
+      "type": {
+        "def": {
+          "composite": {
+            "fields": [
+              {
+                "type": 1,
+                "typeName": "[u8; 32]"
+              }
+            ]
+          }
+        },
+        "path": [
+          "ink_primitives",
+          "types",
+          "Hash"
+        ]
+      }
+    },
+    {
+      "id": 60,
+      "type": {
+        "def": {
+          "variant": {}
+        },
+        "path": [
+          "ink_env",
+          "types",
+          "NoChainExtension"
+        ]
+      }
+    }
+  ],
+  "version": "4"
+}
